@@ -7,6 +7,9 @@ on:
       - ".github/workflows/android-prix3d.yml"
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -36,3 +39,18 @@ jobs:
         with:
           name: Prix-Impression-3D-apk
           path: prix-impression-3d/Prix-Impression-3D.apk
+
+      # Publie l'APK dans une Release : lien de téléchargement direct, sans zip,
+      # toujours à jour via .../releases/latest/download/Prix-Impression-3D.apk
+      - name: Publier la Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: prix3d-build-${{ github.run_number }}
+          name: Prix Impression 3D – build ${{ github.run_number }}
+          target_commitish: ${{ github.sha }}
+          make_latest: "true"
+          body: |
+            APK de l'application **Prix Impression 3D**.
+            Sur le téléphone : toucher `Prix-Impression-3D.apk` ci-dessous, puis Installer
+            (autoriser l'installation depuis cette source si Android le demande).
+          files: prix-impression-3d/Prix-Impression-3D.apk

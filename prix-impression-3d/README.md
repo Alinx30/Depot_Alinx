@@ -21,6 +21,9 @@ Application Android qui calcule le **prix de vente d'une pièce imprimée en 3D*
 
 ## Récupérer l'APK
 
+Lien direct (dernière version), à ouvrir depuis le téléphone :
+https://github.com/Alinx30/Calendrier-sideral/releases/latest/download/Prix-Impression-3D.apk
+
 Chaque push déclenche le workflow GitHub Actions **« Android – Prix Impression 3D »**.
 Ouvrir l'onglet *Actions* du dépôt → dernière exécution → section *Artifacts* →
 télécharger `Prix-Impression-3D-apk`, dézipper, puis installer `Prix-Impression-3D.apk`
