@@ -77,6 +77,10 @@ enum class Field(
     NAME("Nom de la pièce", "", "", numeric = false),
     QUANTITY("Quantité", "pcs", "1", integer = true),
 
+    DESIGN_HOURS("Temps de conception – heures", "h", "0", integer = true),
+    DESIGN_MINUTES("Temps de conception – minutes", "min", "0", integer = true),
+    DESIGN_RATE("Taux horaire conception", "€/h", "25"),
+
     WEIGHT("Poids de la pièce (supports inclus)", "g", "50"),
     FILAMENT_PRICE("Prix de la bobine", "€/kg", "20"),
 
@@ -100,6 +104,7 @@ enum class Field(
 
 private val sections: List<Pair<String, List<Field>>> = listOf(
     "Pièce" to listOf(Field.NAME, Field.QUANTITY),
+    "Conception (modélisation 3D)" to listOf(Field.DESIGN_HOURS, Field.DESIGN_MINUTES, Field.DESIGN_RATE),
     "Matière" to listOf(Field.WEIGHT, Field.FILAMENT_PRICE),
     "Impression & électricité" to listOf(Field.PRINT_HOURS, Field.PRINT_MINUTES, Field.POWER, Field.KWH_PRICE),
     "Machine" to listOf(Field.PRINTER_PRICE, Field.LIFETIME, Field.MAINTENANCE),
@@ -113,6 +118,9 @@ private fun Map<Field, String>.num(f: Field) = PriceCalculator.parse(this[f] ?: 
 
 private fun Map<Field, String>.toInputs() = PrintInputs(
     quantity = num(Field.QUANTITY).toInt(),
+    designHours = num(Field.DESIGN_HOURS),
+    designMinutes = num(Field.DESIGN_MINUTES),
+    designRatePerHour = num(Field.DESIGN_RATE),
     weightGrams = num(Field.WEIGHT),
     filamentPricePerKg = num(Field.FILAMENT_PRICE),
     printHours = num(Field.PRINT_HOURS),
@@ -184,6 +192,12 @@ fun CalculatorScreen() {
                 SectionCard(title) {
                     fields.forEach { f ->
                         InputField(f, values[f].orEmpty()) { update(f, it) }
+                    }
+                    if (Field.DESIGN_RATE in fields) {
+                        Text(
+                            "Compté une seule fois pour toute la commande, puis réparti sur la quantité.",
+                            style = MaterialTheme.typography.bodySmall,
+                        )
                     }
                 }
             }
@@ -289,6 +303,7 @@ private fun ResultCard(r: PriceBreakdown) {
 @Composable
 private fun BreakdownCard(r: PriceBreakdown) {
     SectionCard("Détail du calcul (par pièce)") {
+        Line(if (r.quantity > 1) "Conception (${euros(r.designTotal)} ÷ ${r.quantity})" else "Conception", r.design)
         Line("Matière", r.material)
         Line("Électricité", r.electricity)
         Line("Usure & entretien machine", r.machine)

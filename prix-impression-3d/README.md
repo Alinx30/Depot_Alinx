@@ -6,6 +6,7 @@ Application Android qui calcule le **prix de vente d'une pièce imprimée en 3D*
 
 | Poste | Calcul |
 |---|---|
+| Conception | temps de modélisation × taux horaire, réparti sur la quantité |
 | Matière | poids (g) ÷ 1000 × prix de la bobine (€/kg) |
 | Électricité | puissance (W) ÷ 1000 × durée (h) × prix du kWh |
 | Machine | (prix imprimante ÷ durée de vie (h) + entretien €/h) × durée |

@@ -55,4 +55,16 @@ class PriceCalculatorTest {
         assertEquals(0.0, r.machine, eps)
         assertEquals(1, r.quantity)
     }
+
+    @Test
+    fun conceptionRepartieSurLaQuantite() {
+        // 2 h 30 de conception à 30 €/h = 75 € pour la commande, 5 pièces -> 15 €/pièce
+        val r = PriceCalculator.compute(
+            PrintInputs(quantity = 5, designHours = 2.0, designMinutes = 30.0, designRatePerHour = 30.0)
+        )
+        assertEquals(75.0, r.designTotal, eps)
+        assertEquals(15.0, r.design, eps)
+        assertEquals(15.0, r.costPrice, eps)
+        assertEquals(75.0, r.totalInclTax, eps)
+    }
 }
