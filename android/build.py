@@ -20,10 +20,10 @@ ROOT = os.path.dirname(HERE)
 
 PACKAGE = "com.alinx.fioles"
 APP_NAME = "Fioles Enchantées"
-VERSION_CODE = 1
-VERSION_NAME = "1.0"
+VERSION_CODE = 2
+VERSION_NAME = "1.1"
 MIN_SDK = 24  # v2-only signature (APK Signature Scheme v2 needs Android 7.0+)
-TARGET_SDK = 33
+TARGET_SDK = 36
 
 DENSITIES = {"mdpi": 160, "hdpi": 240, "xhdpi": 320, "xxhdpi": 480, "xxxhdpi": 640}
 ICON_ID = 0x7F010000  # @mipmap/ic_launcher  (package 0x7f, type 1, entry 0)
