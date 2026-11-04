@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="25%" r="80%">
+      <stop offset="0" stop-color="#5a2d8c"/><stop offset="1" stop-color="#1b1033"/>
+    </radialGradient>
+    <clipPath id="inside"><path d="M74 40 h44 v100 a22 22 0 0 1 -44 0 z"/></clipPath>
+  </defs>
+  <rect width="192" height="192" rx="42" fill="url(#bg)"/>
+  <g fill="#fff" opacity=".8">
+    <circle cx="36" cy="40" r="2.5"/><circle cx="156" cy="56" r="2"/><circle cx="148" cy="150" r="2.5"/><circle cx="40" cy="140" r="2"/>
+  </g>
+  <g clip-path="url(#inside)">
+    <rect x="70" y="128" width="52" height="40" fill="#ff4d6d"/>
+    <rect x="70" y="102" width="52" height="26" fill="#4dabff"/>
+    <rect x="70" y="76" width="52" height="26" fill="#5be37d"/>
+    <rect x="70" y="56" width="52" height="20" fill="#ffd23f"/>
+    <rect x="80" y="46" width="7" height="88" rx="3.5" fill="#fff" opacity=".3"/>
+  </g>
+  <path d="M74 40 h44 v100 a22 22 0 0 1 -44 0 z" fill="none" stroke="#fff" stroke-width="5"/>
+  <rect x="66" y="30" width="60" height="12" rx="6" fill="#3a1d5c" stroke="#fff" stroke-width="5"/>
+  <path d="M146 22 l4 10 l10 4 l-10 4 l-4 10 l-4 -10 l-10 -4 l10 -4 z" fill="#ffcf5c"/>
+</svg>
