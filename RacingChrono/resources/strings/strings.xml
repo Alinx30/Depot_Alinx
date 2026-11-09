@@ -1,0 +1,9 @@
+<strings>
+    <string id="AppName">Racing Chrono</string>
+    <!-- Texte en haut de la lunette (remplace par ce que tu veux, ex. ton prénom) -->
+    <string id="BezelLabel">LEGEND</string>
+    <!-- Texte au-dessus de la date, côté 3 h -->
+    <string id="DialLabel">RACING</string>
+    <!-- Texte sous la date -->
+    <string id="DialLabel2">AUTOMATIC</string>
+</strings>

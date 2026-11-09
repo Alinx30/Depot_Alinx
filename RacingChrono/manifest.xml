@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<iq:manifest version="3" xmlns:iq="http://www.garmin.com/xml/connectiq">
+    <iq:application id="2569b8325ecd43c18fdbc1ab73986a2c" type="watchface" name="@Strings.AppName" entry="RacingChronoApp" launcherIcon="@Drawables.LauncherIcon" minApiLevel="3.0.0">
+        <iq:products>
+            <iq:product id="fenix6pro"/>
+        </iq:products>
+        <iq:permissions/>
+        <iq:languages>
+            <iq:language>fre</iq:language>
+            <iq:language>eng</iq:language>
+        </iq:languages>
+        <iq:barrels/>
+    </iq:application>
+</iq:manifest>
